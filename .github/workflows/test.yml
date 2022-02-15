@@ -14,9 +14,8 @@ jobs:
   setup-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout VerifiedSCION
+      - name: Checkout Project
         uses: actions/checkout@v2
-        
       - name: Verify all Gobra files
         uses: jogasser/gobra-action@develop
         with:
@@ -27,4 +26,14 @@ jobs:
           viperBackend: VSWITHSILICON
           globalTimeout: 13h
           packageTimeout: 10h
+      - name: Archive cache
+        uses: actions/upload-artifact@v2
+        with:
+          name: cache
+          path: ${{ github.repository }}/.gobra/cache.json
+      - name: Archive statistics report
+        uses: actions/upload-artifact@v2
+        with:
+          name: cache
+          path: ${{ github.repository }}/.gobra/stats.json     
           
