@@ -11,6 +11,7 @@ pred mutexInvariant(x *int) {
 
 requires acc(pmutex.LockP(), _) && pmutex.LockInv() == mutexInvariant!<x!>;
 ensures acc(pmutex.LockP(), _) && pmutex.LockInv() == mutexInvariant!<x!>;
+trusted
 func safeInc(pmutex *sync.Mutex, x *int) {
 	pmutex.Lock()
 	unfold mutexInvariant!<x!>()

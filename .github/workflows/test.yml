@@ -20,7 +20,12 @@ jobs:
       - name: Verify all Gobra files
         uses: jogasser/gobra-action@develop
         with:
-          projectLocation: src
+          imageName: ghcr.io/jogasser/gobra
+          imageVersion: gobra-action
+          srcDirectory: src
+          chop: 10
+          caching: 1
+          viperBackend: VSWITHSILICON
           globalTimeout: 13h
           packageTimeout: 10h
           

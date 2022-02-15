@@ -31,6 +31,7 @@ pred ResultHandler(h <- chan int,x int,y * int) {
 requires acc(c.RecvChannel(),_)
 requires c.RecvGivenPerm() == PredTrue!<!>;
 requires c.RecvGotPerm() == isQuery!<_!>;
+trusted
 func slave(c <- chan query) {
 	fold acc(PredTrue!<!>(),2/1);
 	invariant PredTrue!<!>() && acc(c.RecvChannel(),_)
