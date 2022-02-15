@@ -16,6 +16,13 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
+      - name: Cache Viper Server cache
+        uses: actions/cache@v2
+        env:
+          cache-name: vs-cache
+        with:
+          path: ${{ runner.workspace }}/.gobra/cache.json 
+          key: ${{ env.cache-name }}
       - name: Verify all Gobra files
         uses: jogasser/gobra-action@develop
         with:
@@ -34,6 +41,6 @@ jobs:
       - name: Archive statistics report
         uses: actions/upload-artifact@v2
         with:
-          name: cache
+          name: stats
           path: ${{ runner.workspace }}/.gobra/stats.json     
           
