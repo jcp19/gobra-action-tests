@@ -22,7 +22,6 @@ jobs:
         with:
           imageName: ghcr.io/jogasser/gobra
           imageVersion: gobra-action
-          srcDirectory: src
           chop: 10
           caching: 1
           viperBackend: VSWITHSILICON
