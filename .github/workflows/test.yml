@@ -30,10 +30,10 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cache
-          path: .gobra/cache.json
+          path: $RUNNER_WORKSPACE/.gobra/cache.json
       - name: Archive statistics report
         uses: actions/upload-artifact@v2
         with:
           name: cache
-          path: .gobra/stats.json     
+          path: $RUNNER_WORKSPACE/.gobra/stats.json     
           
