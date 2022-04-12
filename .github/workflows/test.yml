@@ -24,7 +24,7 @@ jobs:
           path: ${{ runner.workspace }}/.gobra/cache.json 
           key: ${{ env.cache-name }}
       - name: Verify all Gobra files
-        uses: jogasser/gobra-action@main
+        uses: viperproject/gobra-action@main
         with:
           chop: 10
           caching: 1
